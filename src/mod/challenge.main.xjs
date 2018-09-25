@@ -1,0 +1,9 @@
+{View DIV class:"challenge-main"
+  view.attribs: {
+    challenge: {action}
+  }
+
+  view.prototype: keydown
+  
+  []
+}

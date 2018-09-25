@@ -1,42 +1,44 @@
 {
-  "name": "hortense-2018",
-  "author": "tolokoban",
-  "description": "Game for Hortense's birthday",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tolokoban/hortense-2018.git"
-  },
-  "homepage": "https://tolokoban.github.io/hortense-2018",
-  "license": "GPL-3.0",
-  "scripts": {
-    "test": "node node_modules/karma/bin/karma start karma.conf.js",
-    "test:dbg": "node --debug-brk node_modules/karma/bin/karma start karma.conf.js",
-    "debug": "node node_modules/toloframework/bin/tfw.js build debug test php",
-    "watch": "node node_modules/toloframework/bin/tfw.js build debug test php watch",
-    "clean": "node node_modules/toloframework/bin/tfw.js clean",
-    "release": "node node_modules/toloframework/bin/tfw.js build version php clean"
-  },
-  "bugs": {
-    "url": "https://github.com/tolokoban/hortense-2018/issues"
-  },
-  "tfw": {
-    "resources": [],
-    "modules": [],
-    "compile": {
-      "type": "firefoxos",
-      "files": [ "\\.html$" ]
+    "name": "hortense-2018",
+    "author": "tolokoban",
+    "description": "Game for Hortense's birthday",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tolokoban/hortense-2018.git"
     },
-    "output": "www"
-  },
-  "version": "0.0.1",
-  "reservedModules": [],
-  "dependencies": {
-    "jasmine": "^2.99.0",
-    "jasmine-core": "^2.99.1",
-    "karma": "^2.0.2",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-firefox-launcher": "^1.1.0",
-    "karma-jasmine": "^1.1.2"
-    "toloframework": "^0.45"
-  }
+    "homepage": "https://github.com/tolokoban/hortense-2018",
+    "license": "GPL-3.0",
+    "scripts": {
+        "test": "node node_modules/karma/bin/karma start karma.conf.js",
+        "test:dbg": "node --debug-brk node_modules/karma/bin/karma start karma.conf.js",
+        "debug": "node node_modules/toloframework/bin/tfw.js build debug test php",
+        "watch": "node node_modules/toloframework/bin/tfw.js build debug test php watch",
+        "clean": "node node_modules/toloframework/bin/tfw.js clean",
+        "release": "node node_modules/toloframework/bin/tfw.js build version php clean"
+    },
+    "bugs": {
+        "url": "https://github.com/tolokoban/hortense-2018/issues"
+    },
+    "tfw": {
+        "resources": [],
+        "modules": [],
+        "compile": {
+            "type": "firefoxos",
+            "files": [
+                "\\.html$"
+            ]
+        },
+        "output": "www"
+    },
+    "version": "0.0.1",
+    "reservedModules": [],
+    "dependencies": {
+        "jasmine": "^2.99.0",
+        "jasmine-core": "^2.99.1",
+        "karma": "^2.0.2",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-firefox-launcher": "^1.1.0",
+        "karma-jasmine": "^1.1.2",
+        "toloframework": "^0.45"
+    }
 }

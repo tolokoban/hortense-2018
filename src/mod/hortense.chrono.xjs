@@ -1,0 +1,13 @@
+{View DIV class:"hortense-chrono thm-ele12"
+  view.attribs: {
+    initial-time: {integer 180}
+    value: {integer 0}
+    start: {action behind:onStart}
+  }
+
+  [
+    {DIV textcontent:{Bind value converter:behind.minutes}}
+    {DIV [':']}
+    {DIV textcontent:{Bind value converter:behind.seconds}}
+  ]
+}

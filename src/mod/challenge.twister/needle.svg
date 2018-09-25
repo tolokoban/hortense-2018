@@ -1,0 +1,6 @@
+<svg viewBox="-256 -256 512 512" xmlns="http://www.w3.org/2000/svg">
+  <g stroke-width="4" stroke="#000" fill="#f0f">
+    <path d="M25,0 L0,-250 L-25,0 C-25,50,25,50,25,0 Z"/>
+    <circle cx="0" cy="0" r="7" fill="#000"/>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+{View DIV class:"challenge-twister background"
+  view.attribs: {
+    rotate-left: {string ""}
+    rotate-right: {string ""}
+    angle-left: {float 11.25 behind:onAngleLeft}
+    angle-right: {float -11.25 behind:onAngleRight}
+  }
+
+  view.prototype: keydown
+  
+  [
+    {DIV class:disks [
+      {DIV [{DIV style.transform:{Bind rotate-left}}]}
+      {DIV [{DIV style.transform:{Bind rotate-right}}]}
+    ]}
+    {P innerhtml:"Tapez sur <b>ESPACE</b> pour lancer les roues.<br/><b>ECHAP</b> si c'est perdu et <b>ENTER</b> si c'est gagné."}
+  ]
+}

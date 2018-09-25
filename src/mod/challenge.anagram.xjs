@@ -1,0 +1,25 @@
+{View DIV class:"challenge-anagram background"
+  view.attribs: {
+    words: {array [
+      pomme chien chat renard truite poisson hortense anniversaire septembre college histoire cartable manger boire
+      banane abricot poire limace escargot elephant bonbon nuit jour bateau avion fille animal meteo terre pluie
+      poussiere meteorite explosion
+    ]}
+    letters: {array []}
+    solution: {string ""}
+    proposition: {string ""}
+    hint: {integer 0 behind:onHint}   // Number of char to display
+    timer: {integer behind:onTimer}
+    start: {action behind:onStart}
+    success: {action}
+    failure: {action}
+  }
+
+  view.prototype: keydown
+  
+  [
+    {hortense.chrono initial-time:65 start:{Bind start} value:{Bind timer}}
+    {DIV class:"letters shadowFFF" view.children:{Bind letters map:onMap}}
+    {DIV class:"proposition shadowFFF" view.children:{Bind proposition converter:behind.completeWithDashes}}
+  ]
+}
