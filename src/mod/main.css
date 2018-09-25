@@ -43,13 +43,11 @@ body > div {
 }
 
 div.hide {
-    transition: all .7s;
+    transition: transform .7s;
     transform: scale(0) rotate(180deg);
-    opacity: 0;
 }
 
 div.show {
-    transition: all .7s;
+    transition: transform .7s;
     transform: scale(1) rotate(0deg);
-    opacity: 1;
 }

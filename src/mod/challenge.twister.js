@@ -18,6 +18,8 @@ function keydown( rawKey ) {
     var angR = Math.floor( 48 * Math.random() );
     this.angleRight -= 360*3 + 22.5 * angR;
   }
+  else if( key == 'ESCAPE' ) this.failure = 1;
+  else if( key == 'ENTER' ) this.success = 1;
 }
 
 

@@ -1,9 +1,14 @@
 {View DIV class:"challenge-main"
   view.attribs: {
+    challenges: {array [anagram twister anagram twister anagram twister anagram twister anagram twister ]}
     challenge: {action}
   }
 
   view.prototype: keydown
   
-  []
+  [
+    {DIV class:strip-container [
+      {DIV view.id:strip view.children:{Bind challenges map:mapChallenges}}
+    ]}
+  ]
 }

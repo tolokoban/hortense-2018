@@ -4,6 +4,8 @@
     rotate-right: {string ""}
     angle-left: {float 11.25 behind:onAngleLeft}
     angle-right: {float -11.25 behind:onAngleRight}
+    success: {action}
+    failure: {action}
   }
 
   view.prototype: keydown

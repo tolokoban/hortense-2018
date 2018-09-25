@@ -18,7 +18,7 @@
   view.prototype: keydown
   
   [
-    {hortense.chrono initial-time:65 start:{Bind start} value:{Bind timer}}
+    {hortense.chrono initial-time:120 start:{Bind start} value:{Bind timer}}
     {DIV class:"letters shadowFFF" view.children:{Bind letters map:onMap}}
     {DIV class:"proposition shadowFFF" view.children:{Bind proposition converter:behind.completeWithDashes}}
   ]
