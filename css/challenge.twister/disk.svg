@@ -1,0 +1,22 @@
+<svg viewBox="-256 -256 512 512" xmlns="http://www.w3.org/2000/svg">
+  <g stroke-width="4" stroke="#000">
+    <circle r="200" cx="0" cy="0" fill="#ddd"/>
+    <circle r="30" cx="39" cy="196" fill="#f00"/>
+    <circle r="30" cx="111" cy="166" fill="#0f0"/>
+    <circle r="30" cx="166" cy="111" fill="#ff0"/>
+    <circle r="30" cx="196" cy="39" fill="#69f"/>
+    <circle r="30" cx="196" cy="-40" fill="#f00"/>
+    <circle r="30" cx="166" cy="-112" fill="#0f0"/>
+    <circle r="30" cx="111" cy="-167" fill="#ff0"/>
+    <circle r="30" cx="39" cy="-197" fill="#69f"/>
+    <circle r="30" cx="-40" cy="-197" fill="#f00"/>
+    <circle r="30" cx="-112" cy="-167" fill="#0f0"/>
+    <circle r="30" cx="-167" cy="-112" fill="#ff0"/>
+    <circle r="30" cx="-197" cy="-40" fill="#69f"/>
+    <circle r="30" cx="-197" cy="39" fill="#f00"/>
+    <circle r="30" cx="-167" cy="111" fill="#0f0"/>
+    <circle r="30" cx="-112" cy="166" fill="#ff0"/>
+    <circle r="30" cx="-40" cy="196" fill="#69f"/>
+    <path d="M0,-200V200 M-200,0H200" stroke-width="2" stroke-dasharray="4"/>
+  </g>
+</svg>

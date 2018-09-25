@@ -1,0 +1,14 @@
+{
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "tolokoban",
+    "url": "https://github.com/tolokoban/hortense-2018"
+  },
+  "icons": {
+    "128": "/icon-128.png",
+    "512": "/icon-512.png"
+  },
+  "name": "hortense-2018",
+  "version": "0.0.1",
+  "description": "Game for Hortense's birthday"
+}
