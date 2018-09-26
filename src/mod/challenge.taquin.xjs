@@ -1,0 +1,16 @@
+{View DIV class:"challenge-paper background"
+  view.attribs: {
+    timer: {integer behind:onTimer}
+    start: {action behind:onStart}
+    success: {action}
+    failure: {action}
+  }
+
+  view.prototype: keydown
+  
+  [
+    {hortense.chrono initial-time:120 start:{Bind start} value:{Bind timer}}  
+    {DIV class:grid view.id:grid}  
+    {P innerhtml:"Utilisez les flèches."}
+  ]
+}

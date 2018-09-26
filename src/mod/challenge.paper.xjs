@@ -1,0 +1,31 @@
+{View DIV class:"challenge-paper background"
+  view.attribs: {
+    score-left: {integer 0}
+    score-right: {integer 0}
+    angle: {float 0 behind:onAngleChanged}
+    rotate: {string "rotate(0deg)"}
+    last-throw: {float 0}
+    success: {action}
+    failure: {action}
+  }
+
+  view.prototype: keydown
+  
+  [
+    {DIV class:row [
+      {DIV class:shadowFFF textcontent:{Bind score-left}}
+      {DIV class:"wheel thm-ele12" [{DIV style.transform:{Bind rotate} [
+        {DIV class:stone}
+        {DIV class:paper}
+        {DIV class:scissors}
+        {DIV class:well}
+        {DIV class:stone2}
+        {DIV class:paper2}
+        {DIV class:scissors2}
+        {DIV class:well2}
+      ]}]}
+      {DIV class:shadowFFF textcontent:{Bind score-right}}
+    ]}
+    {P innerhtml:"Tapez sur <b>ESPACE</b> pour lancer le pierre/feuille/ciseaux/puit.<br/><b>GAUCHE</b> (vous) et <b>DROITE</b> (dragon) pour attribuer les points.<br/>La partie se joue en <b>5</b> points."}
+  ]
+}

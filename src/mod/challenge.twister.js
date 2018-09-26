@@ -12,14 +12,20 @@ var CODE_BEHIND = {
 function keydown( rawKey ) {
   var key = rawKey.toUpperCase();
   console.info("[challenge.twister] key=", key);
-  if( key === ' ' ) {
+  if( key === ' ' ) {    
+    var now = Date.now();
+    if( now - this.lastThrow < 6000 ) return;
+    this.lastThrow = now;
+
+    if( this.tries < 1 ) this.success = 1;
+    this.tries--;
+    
     var angL = Math.floor( 48 * Math.random() );
     this.angleLeft += 360*3 + 22.5 * angL;
     var angR = Math.floor( 48 * Math.random() );
     this.angleRight -= 360*3 + 22.5 * angR;
   }
   else if( key == 'ESCAPE' ) this.failure = 1;
-  else if( key == 'ENTER' ) this.success = 1;
 }
 
 

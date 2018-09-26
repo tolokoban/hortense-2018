@@ -4,6 +4,10 @@ div.challenge-twister {
     justify-content: space-around;
 }
 
+div.challenge-twister > div.tries {
+  font-size: 10vw;
+}
+
 div.challenge-twister > p {
     flex: 0 0;
     padding: 1em;
@@ -26,7 +30,7 @@ div.challenge-twister > div > div {
     width: 50vmin;
     height: 50vmin;
     background-color: #000a;
-    border-radius: 25%;
+    border-radius: 100%;
 }
 
 div.challenge-twister > div > div > div {

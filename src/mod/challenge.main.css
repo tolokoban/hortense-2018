@@ -62,3 +62,11 @@ div.challenge-main div.challenge.victory {
 div.challenge-main div.challenge.twister {
     background-image: url(challenge.main/twister.svg);
 }
+
+div.challenge-main div.challenge.anagram {
+    background-image: url(challenge.main/anagram.png);
+}
+
+div.challenge-main div.challenge.paper {
+    background-image: url(challenge.main/paper.svg);
+}

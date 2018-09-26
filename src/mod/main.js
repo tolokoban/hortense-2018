@@ -5,6 +5,7 @@ var $ = require("dom");
 var PM = require("tfw.binding.property-manager");
 var Main = require("challenge.main");
 var Sound = require("sound");
+var Paper = require("challenge.paper");
 var Twister = require("challenge.twister");
 var Anagram = require("challenge.anagram");
 
@@ -14,7 +15,7 @@ var g_currentView;
 exports.start = function() {
   createMainView();
   g_currentView = g_mainView;
-  
+
   document.addEventListener( 'keydown', function( evt ) {
     g_currentView.keydown( evt.key );
   });
@@ -29,6 +30,7 @@ function createMainView() {
     switch( name ) {
     case "anagram": return createAnagram();
     case "twister": return createTwister();
+    case "paper": return createPaper();
     }
   });
 }
@@ -46,17 +48,27 @@ function createTwister() {
 }
 
 
+function createPaper() {
+  var view = new Paper();
+  showView( view );
+}
+
+
 function showView( view ) {
   $.addClass( view, "hide" );
   $.add( document.body, view );
   window.setTimeout(function() {
     $.removeClass( view, "hide" );
-    $.addClass( view, "show" );
+    window.setTimeout(function() {
+      $.addClass( view, "show" );
+    });
   });
   g_currentView = view;
   var close = function() {
     $.removeClass( view, "show" );
-    $.addClass( view, "hide" );
+    window.setTimeout(function() {
+      $.addClass( view, "hide" );
+    });
     window.setTimeout(function() {
       $.detach( view );
     }, 1000);
