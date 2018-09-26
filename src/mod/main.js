@@ -64,10 +64,12 @@ function showView( view ) {
   };
   PM( view ).on( "success", function() {
     Sound.play( "success" );
+    g_mainView.forward = true;
     close();
   });
   PM( view ).on( "failure", function() {
     Sound.play( "failure" );
+    g_mainView.forward = false;
     close();
   });
 }

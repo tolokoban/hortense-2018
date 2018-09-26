@@ -1,14 +1,24 @@
 {View DIV class:"challenge-main"
   view.attribs: {
-    challenges: {array [anagram twister anagram twister anagram twister anagram twister anagram twister ]}
+    challenges: {array [
+      anagram twister anagram twister anagram twister anagram twister anagram twister
+      victory
+    ]}
     challenge: {action}
+    cursor: {integer 0 behind:onCursorChanged}  // Cell to put the cursor on.
+    die: {integer 0}     // Remaining number on the last die throw.
+    forward: {boolean true} // When you win, you go forward, else you go backward.
+    bounce: {boolean false} // If you move on the edge, you will bounce. Then forward becomes backward and vice versa.
   }
 
   view.prototype: keydown
+  view.init: init
   
   [
     {DIV class:strip-container [
-      {DIV view.id:strip view.children:{Bind challenges map:mapChallenges}}
+      {DIV class:strip view.id:strip view.children:{Bind challenges map:mapChallenges}}
+          {DIV class:cursor}
     ]}
+    {DIV class:shadowFFF innerhtml:"Lancez un dé à 6 faces et tapez le chiffre obtenu."}
   ]
 }
