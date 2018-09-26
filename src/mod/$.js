@@ -1,4 +1,4 @@
-exports.config={"name":"\"hortense-2018\"","description":"\"Game for Hortense's birthday\"","author":"\"tolokoban\"","version":"\"0.0.1\"","major":"0","minor":"0","revision":"1","date":"2018-09-25T07:13:53.000Z","consts":{}};
+exports.config={"name":"\"hortense-2018\"","description":"\"Game for Hortense's birthday\"","author":"\"tolokoban\"","version":"\"0.0.2\"","major":"0","minor":"0","revision":"2","date":"2018-09-26T21:01:50.000Z","consts":{}};
 var currentLang = null;
 exports.lang = function(lang) {
     if (lang === undefined) {
