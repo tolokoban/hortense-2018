@@ -1,16 +1,20 @@
-{View DIV class:"challenge-paper background"
+{View DIV class:"challenge-taquin background"
   view.attribs: {
     timer: {integer behind:onTimer}
-    start: {action behind:onStart}
+    start: {action}
     success: {action}
     failure: {action}
   }
 
+  view.init: onStart
   view.prototype: keydown
   
   [
     {hortense.chrono initial-time:120 start:{Bind start} value:{Bind timer}}  
-    {DIV class:grid view.id:grid}  
+    {DIV class:grid-container [
+         {DIV view.id:background class:background}
+         {DIV view.id:grid class:grid}
+    ]}
     {P innerhtml:"Utilisez les flèches."}
   ]
 }

@@ -1,6 +1,25 @@
 div.hortense-chrono {
+    position: relative;
+    text-align: right;    
+}
+
+div.hortense-chrono > div {
+    position: absolute;
+    right: 0;
+    top: 0;
     font-size: 5vh;
     max-height: 2em;
     background: #f80e;
-    width: 100%;
+    width: 25vh;
+    line-height: 2em;
+    padding: 0 1em;
+    text-align: center;
+    border-radius: 0 0 0 1em;
+    box-shadow: 0 .4em .8em #0008;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+div.hortense-chrono > div > div {
+    display: inline-block;
 }

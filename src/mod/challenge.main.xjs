@@ -1,8 +1,9 @@
 {View DIV class:"challenge-main"
   view.attribs: {
     challenges: {array [
-      paper anagram twister
-      paper anagram twister
+    nim
+      paper anagram twister taquin nim
+      paper anagram twister taquin nim
       victory
     ]}
     challenge: {action}

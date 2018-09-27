@@ -1,0 +1,19 @@
+{View DIV class:"challenge-nim background"
+  view.attribs: {
+    eaten: {integer 0 behind:onEatenChanged}
+    success: {action}
+    failure: {action}
+  }
+
+  view.prototype: keydown
+  
+  [
+    {DIV [
+         {DIV class:item} {DIV class:item} {DIV class:item} {DIV class:item} {DIV class:item}
+         {DIV class:item} {DIV class:item} {DIV class:item} {DIV class:item} {DIV class:item}
+         {DIV class:item} {DIV class:item} {DIV class:item} {DIV class:item} {DIV class:item}
+         {DIV class:item} {DIV class:item}
+    ]}
+    {P innerhtml:"Prenez <b>1</b>, <b>2</b> ou <b>3</b> citrouilles. Celui qui prend les dernières gagne la partie."}
+  ]
+}

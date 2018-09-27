@@ -70,3 +70,11 @@ div.challenge-main div.challenge.anagram {
 div.challenge-main div.challenge.paper {
     background-image: url(challenge.main/paper.svg);
 }
+
+div.challenge-main div.challenge.taquin {
+    background-image: url(challenge.main/taquin.png);
+}
+
+div.challenge-main div.challenge.nim {
+    background-image: url(challenge.main/nim.png);
+}
