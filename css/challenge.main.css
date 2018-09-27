@@ -1,0 +1,80 @@
+div.challenge-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 5vw;
+}
+
+div.challenge-main > div.shadowFFF {
+    text-align: center;
+}
+
+div.challenge-main > div.strip-container {
+    overflow: hidden;
+    height: 15vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+div.challenge-main > div.strip-container > div.strip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    transform: translationX(0);
+    transition: transform .45s;
+}
+
+div.challenge-main > div.strip-container > div.cursor {
+    position: absolute;
+    left: 30vw;
+    top: 0;
+    width: 13vw;
+    height: 13vw;
+    margin: 1vw;
+    border-radius: 100%;
+    box-shadow: 0 0 0 1vw orange;
+}
+
+div.challenge-main > div.strip-container > div > div.challenge {
+    padding: 0;
+    display: inline-block;
+    width: 13vw;
+    height: 13vw;
+    margin: 1vw;
+    background-color: #fff;
+    border-radius: 100%;
+    background-size: contain;
+}
+
+div.challenge-main div.challenge.victory {
+    background-image: url(challenge.main/victory.png);
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+div.challenge-main div.challenge.twister {
+    background-image: url(challenge.main/twister.svg);
+}
+
+div.challenge-main div.challenge.anagram {
+    background-image: url(challenge.main/anagram.png);
+}
+
+div.challenge-main div.challenge.paper {
+    background-image: url(challenge.main/paper.svg);
+}
+
+div.challenge-main div.challenge.taquin {
+    background-image: url(challenge.main/taquin.png);
+}
+
+div.challenge-main div.challenge.nim {
+    background-image: url(challenge.main/nim.png);
+}

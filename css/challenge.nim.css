@@ -1,0 +1,38 @@
+div.challenge-nim {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div.challenge-nim > p {
+  font-size: 3vmin;
+  padding: 1em;
+  color: #fff;
+  background: #412c;
+  text-align: center;
+  width: 100%;
+}
+
+div.challenge-nim > div {
+    max-width: 90vw;
+    text-align: center;
+    background: #fff7;
+    border-radius: 20vmin;
+    padding: 5vmin;
+}
+
+div.challenge-nim > div > div.item {
+    display: inline-block;
+    background-image: url(challenge.nim/nim.png);
+    background-size: contain;
+    width: 15vw;
+    height: 15vw;
+    margin: -2vw;
+}
+
+div.challenge-nim > div > div.item.miam {
+    transition: all .5s;
+    transform: scale(.7) rotate(-18deg);
+    filter: saturate(0);
+}

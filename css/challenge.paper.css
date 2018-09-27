@@ -1,0 +1,100 @@
+div.challenge-paper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+div.challenge-paper > div.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+
+div.challenge-paper > div.row > div {
+  font-size: 12vw;
+}
+
+
+div.challenge-paper > p {
+  font-size: 3vmin;
+  padding: 1em;
+  color: #fff;
+  background: #060c;
+  text-align: center;
+}
+
+
+div.challenge-paper > div.row > div.wheel {
+  position: relative;
+  width: 70vmin;
+  height: 70vmin;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+div.challenge-paper > div.row > div.wheel > div,
+div.challenge-paper > div.row > div.wheel > div > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70vmin;
+  height: 70vmin;
+  margin: 0;
+  padding: 0;
+  background-size: contain;
+  transform-origin: -105vmin center;
+}
+
+div.challenge-paper > div.row > div.wheel > div {
+  transition: transform 5s;  
+}  
+
+div.challenge-paper > div.row > div.wheel > div > div {
+}
+
+div.challenge-paper > div.row > div.wheel > div > div.stone {
+  background-image: url(challenge.paper/stone.svg);
+  transform: rotate(0deg);
+}
+
+div.challenge-paper > div.row > div.wheel > div > div.paper {
+  background-image: url(challenge.paper/paper.svg);
+  transform: rotate(45deg);
+}
+
+div.challenge-paper > div.row > div.wheel > div > div.scissors {
+  background-image: url(challenge.paper/scissors.svg);
+  transform: rotate(90deg);
+}
+
+div.challenge-paper > div.row > div.wheel > div > div.well {
+  background-image: url(challenge.paper/well.svg);
+  transform: rotate(135deg);
+}
+
+div.challenge-paper > div.row > div.wheel > div > div.stone2 {
+  background-image: url(challenge.paper/stone.svg);
+  transform: rotate(180deg);
+}
+
+div.challenge-paper > div.row > div.wheel > div > div.paper2 {
+  background-image: url(challenge.paper/paper.svg);
+  transform: rotate(225deg);
+}
+
+div.challenge-paper > div.row > div.wheel > div > div.scissors2 {
+  background-image: url(challenge.paper/scissors.svg);
+  transform: rotate(270deg);
+}
+
+div.challenge-paper > div.row > div.wheel > div > div.well2 {
+  background-image: url(challenge.paper/well.svg);
+  transform: rotate(315deg);
+}
+
