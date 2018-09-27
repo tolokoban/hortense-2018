@@ -59,7 +59,10 @@ function keydown( rawKey ) {
   if( this.letters.indexOf( key ) === -1 ) return Sound.play( "error" );
   if( this.proposition.length >= this.solution.length ) return Sound.play( "error" );
   this.proposition += key;
-  if( this.proposition === this.solution ) this.success = 1;
+  if( this.proposition === this.solution ) {
+    this.success = 1;
+    this.stop = 1;
+  }
 }
 
 
@@ -144,6 +147,7 @@ try {
         pm.create("hint", { cast: conv_integer(0) });
         pm.create("timer", { cast: conv_integer(0) });
         pm.createAction("start")
+        pm.createAction("stop")
         pm.createAction("success")
         pm.createAction("failure")
         //------------------
@@ -164,6 +168,13 @@ try {
           B:{obj: e_0,
               name: 'start'},
           name:"start > e_0/start"
+        });
+        new Link({
+          A:{obj: that,
+              name: 'stop'},
+          B:{obj: e_0,
+              name: 'stop'},
+          name:"stop > e_0/stop"
         });
         new Link({
           A:{obj: that,
@@ -232,7 +243,7 @@ try {
         e_2.class = "proposition shadowFFF";
         //------------------------
         // Initialize attributes.
-        this.words = defVal(args, "words", ["pomme","chien","chat","renard","truite","poisson","hortense","anniversaire","septembre","college","histoire","cartable","manger","boire","banane","abricot","poire","limace","escargot","elephant","bonbon","nuit","jour","bateau","avion","fille","animal","meteo","terre","pluie","poussiere","meteorite","explosion"]);
+        this.words = defVal(args, "words", ["pomme","chien","chat","renard","truite","poisson","hortense","anniversaire","septembre","college","histoire","cartable","manger","boire","banane","abricot","poire","limace","escargot","elephant","bonbon","nuit","jour","bateau","avion","fille","animal","meteo","terre","pluie","poussiere","meteorite","explosion","citrouille","singe","tortue","lion","oiseau","girafe","cochon","automne"]);
         this.letters = defVal(args, "letters", []);
         this.solution = defVal(args, "solution", "");
         this.proposition = defVal(args, "proposition", "");

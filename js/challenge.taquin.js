@@ -34,7 +34,7 @@ function onStart() {
   }
 
   this._lastIndex = 2;
-  this._loops = 10;
+  this._loops = 20;
   window.setTimeout( shuffle.bind( this ), 1000 );
 }
 
@@ -108,6 +108,7 @@ function move( dx, dy ) {
   var that = this;
 
   if( gridIsSolved( grid ) ) {
+    this.stop = 1;
     this._wait = true;
     window.setTimeout(function() {
       $.addClass( that, 'victory' );
@@ -188,6 +189,7 @@ try {
         // Create attributes.
         pm.create("timer", { cast: conv_integer(0) });
         pm.createAction("start")
+        pm.createAction("stop")
         pm.createAction("success")
         pm.createAction("failure")
         //------------------
@@ -213,6 +215,13 @@ try {
           B:{obj: e_0,
               name: 'start'},
           name:"start > e_0/start"
+        });
+        new Link({
+          A:{obj: that,
+              name: 'stop'},
+          B:{obj: e_0,
+              name: 'stop'},
+          name:"stop > e_0/stop"
         });
         new Link({
           A:{obj: that,

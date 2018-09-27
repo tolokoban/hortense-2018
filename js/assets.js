@@ -6,6 +6,7 @@ exports.fetch = fetchAssets;
 
 function fetchAssets( assets ) {
   return new Promise(function (resolve, reject) {
+    console.log( "In the promise..." );
     showSplashScreen().then(function() {
       var count = 0;
       var done = 0;
@@ -84,6 +85,7 @@ function fetchAssets( assets ) {
 function showSplashScreen( applicationName ) {
   if( typeof applicationName === 'undefined' ) applicationName = 'TOLOKOBAN';
 
+  console.info("[assets] applicationName=", applicationName);
   return new Promise(function (resolve, reject) {
     function show() {
       var splash = document.createElement( "div" );
@@ -98,10 +100,12 @@ function showSplashScreen( applicationName ) {
       }, 50);
       resolve();
     }
-    if( document.readyState === "complete" ) {
-      show();
-    } else {
+    console.info("[assets] document.readyState=", document.readyState);
+    if( document.readyState === "loading" ) {
+      console.log( "Waiting for DOMContentLoaded..." );
       document.addEventListener( "DOMContentLoaded", show );
+    } else {
+      show();
     }
   });
 }

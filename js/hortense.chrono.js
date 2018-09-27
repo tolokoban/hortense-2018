@@ -3,6 +3,7 @@
 
 var CODE_BEHIND = {
   onStart: onStart,
+  onStop: onStop,
   minutes: minutes,
   seconds: seconds
 };
@@ -14,12 +15,23 @@ function onStart() {
   if( this._interval ) window.clearTimeout( this._interval );
   this.value = this.initialTime;
   this._startTime = Date.now();
-  this._interval = window.setInterval(function() {
-    var now = Date.now();
-    var elapsedTime = 0.001 * (now - that._startTime);
-    var time = Math.max( 0, that.initialTime - elapsedTime );
-    that.value = time;
-  }, 200);
+  tick.call( this );
+}
+
+
+function onStop() {
+  if( this._interval ) window.clearTimeout( this._interval );
+  this.value = this.initialTime + 1;
+}
+
+
+function tick() {
+  var now = Date.now();
+  var elapsedTime = 0.001 * (now - this._startTime);
+  var time = Math.max( 0, this.initialTime - elapsedTime );
+  console.info("[hortense.chrono] time=", time);
+  this.value = time;
+  if( time > 0 ) this._interval = window.setTimeout( tick.bind( this ), 900 );
 }
 
 
@@ -49,7 +61,7 @@ try {
     var Converters = require('tfw.binding.converters');
     //-------------------------------------------------------
     // Check if needed functions are defined in code behind.
-    View.ensureCodeBehind( CODE_BEHIND, "onStart", "minutes", "seconds" );
+    View.ensureCodeBehind( CODE_BEHIND, "onStart", "onStop", "minutes", "seconds" );
     //-------------------
     // Global functions.
     function defVal(args, attName, attValue) { return args[attName] === undefined ? attValue : args[attName]; };
@@ -69,6 +81,7 @@ try {
         pm.create("initialTime", { cast: conv_integer(0) });
         pm.create("value", { cast: conv_integer(0) });
         pm.createAction("start")
+        pm.createAction("stop")
         //------------------
         // Create elements.
         var e_ = new Tag('DIV', ["class"]);
@@ -108,6 +121,14 @@ try {
           }
           catch( ex ) {
             console.error('Exception in function behind "onStart" of module "mod/hortense.chrono.js" for attribute "start"!  ');
+            console.error( ex );
+          }} );
+        pm.on( "stop", function(v) {
+          try {
+            CODE_BEHIND.onStop.call( that, v );
+          }
+          catch( ex ) {
+            console.error('Exception in function behind "onStop" of module "mod/hortense.chrono.js" for attribute "stop"!  ');
             console.error( ex );
           }} );
         //----------------------
