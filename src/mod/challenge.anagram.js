@@ -58,7 +58,10 @@ function keydown( rawKey ) {
   if( this.letters.indexOf( key ) === -1 ) return Sound.play( "error" );
   if( this.proposition.length >= this.solution.length ) return Sound.play( "error" );
   this.proposition += key;
-  if( this.proposition === this.solution ) this.success = 1;
+  if( this.proposition === this.solution ) {
+    this.success = 1;
+    this.stop = 1;
+  }
 }
 
 

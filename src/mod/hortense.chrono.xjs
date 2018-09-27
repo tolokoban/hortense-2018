@@ -3,6 +3,7 @@
     initial-time: {integer 180}
     value: {integer 0}
     start: {action behind:onStart}
+    stop: {action behind:onStop}
   }
 
   [

@@ -2,6 +2,7 @@
   view.attribs: {
     timer: {integer behind:onTimer}
     start: {action}
+    stop: {action}
     success: {action}
     failure: {action}
   }
@@ -10,7 +11,7 @@
   view.prototype: keydown
   
   [
-    {hortense.chrono initial-time:120 start:{Bind start} value:{Bind timer}}  
+    {hortense.chrono initial-time:120 start:{Bind start} stop:{Bind stop} value:{Bind timer}}  
     {DIV class:grid-container [
          {DIV view.id:background class:background}
          {DIV view.id:grid class:grid}

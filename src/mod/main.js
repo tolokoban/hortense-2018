@@ -1,5 +1,7 @@
 "use strict";
 
+// Many SVG art can be found here: https://www.svgrepo.com/
+
 require("font.josefin");
 var $ = require("dom");
 var PM = require("tfw.binding.property-manager");
@@ -16,6 +18,7 @@ var g_mainView;
 var g_currentView;
 
 exports.start = function() {
+  console.log("START");
   Assets.fetch({
     background: "css/main/background.jpg",
     anagram: "css/challenge.main/anagram.png",
@@ -34,14 +37,21 @@ exports.start = function() {
     taquin23: "css/challenge.taquin/picture-3.png",
     twisterDisk: "css/challemge.twister/disk.svg",
     twisterNeedle: "css/challemge.twister/needle.svg"
-  }).then(function() {
-    createMainView();
-    g_currentView = g_mainView;
+  }).then(
+    function( assets ) {
+      console.log("All assets loaded: ", assets);
+      createMainView();
+      g_currentView = g_mainView;
 
-    document.addEventListener( 'keydown', function( evt ) {
-      g_currentView.keydown( evt.key );
-    });
-  });
+      document.addEventListener( 'keydown', function( evt ) {
+        g_currentView.keydown( evt.key );
+        if( evt.key.toUpperCase() === 'BACKSPACE' ) evt.preventDefault();
+      });
+    },
+    function( err ) {
+      console.error( "Assets.fetch: ", err );
+    }
+  );
 };
 
 
@@ -94,6 +104,7 @@ function createTaquin() {
 function showView( view ) {
   $.addClass( view, "hide" );
   $.add( document.body, view );
+  g_mainView.anim = false;
   window.setTimeout(function() {
     $.removeClass( view, "hide" );
     window.setTimeout(function() {
@@ -107,6 +118,7 @@ function showView( view ) {
       $.addClass( view, "hide" );
     });
     window.setTimeout(function() {
+      g_mainView.anim = true;
       $.detach( view );
     }, 1000);
     g_currentView = g_mainView;

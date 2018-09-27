@@ -1,0 +1,6 @@
+{
+  var: {
+    vert: challenge.main.vert
+    frag: challenge.main.frag
+  }
+}

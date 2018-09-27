@@ -3,7 +3,7 @@
     words: {array [
       pomme chien chat renard truite poisson hortense anniversaire septembre college histoire cartable manger boire
       banane abricot poire limace escargot elephant bonbon nuit jour bateau avion fille animal meteo terre pluie
-      poussiere meteorite explosion
+      poussiere meteorite explosion citrouille singe tortue lion oiseau girafe cochon automne
     ]}
     letters: {array []}
     solution: {string ""}
@@ -11,6 +11,7 @@
     hint: {integer 0 behind:onHint}   // Number of char to display
     timer: {integer behind:onTimer}
     start: {action behind:onStart}
+    stop: {action}
     success: {action}
     failure: {action}
   }
@@ -18,7 +19,7 @@
   view.prototype: keydown
   
   [
-    {hortense.chrono initial-time:120 start:{Bind start} value:{Bind timer}}
+    {hortense.chrono initial-time:120 start:{Bind start} stop:{Bind stop} value:{Bind timer}}
     {DIV class:"letters shadowFFF" view.children:{Bind letters map:onMap}}
     {DIV class:"proposition shadowFFF" view.children:{Bind proposition converter:behind.completeWithDashes}}
   ]

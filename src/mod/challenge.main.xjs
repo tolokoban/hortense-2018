@@ -1,11 +1,11 @@
 {View DIV class:"challenge-main"
   view.attribs: {
     challenges: {array [
-    nim
       paper anagram twister taquin nim
       paper anagram twister taquin nim
       victory
     ]}
+    anim: {boolean true}
     challenge: {action}
     cursor: {integer 0 behind:onCursorChanged}  // Cell to put the cursor on.
     die: {integer 0}     // Remaining number on the last die throw.
@@ -17,10 +17,11 @@
   view.init: init
   
   [
+    {CANVAS view.id:canvas}
     {DIV class:strip-container [
       {DIV class:strip view.id:strip view.children:{Bind challenges map:mapChallenges}}
           {DIV class:cursor}
     ]}
-    {DIV class:shadowFFF innerhtml:"Lancez un dé à 6 faces et tapez le chiffre obtenu."}
+    {DIV class:shadowFFF innerhtml:"Lancez un dé à 6 faces et tapez le chiffre obtenu.<br/>Si vous faites <b>6</b>, restez sur place !"}
   ]
 }

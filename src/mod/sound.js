@@ -2,23 +2,16 @@
 
 
 exports.play = play;
-exports.speak = speak;
 
 
 
 
 
 function play( name ) {
-  
+  console.info("[sound] name=", name);
+  var audio = new Audio();
+  audio.setAttribute( "src", "css/sound/" + name + ".mp3" );
+  audio.play();
 }
 
 
-window.speechSynthesis.onvoiceschanged = function() {
-  console.log("Voices: ", window.speechSynthesis.getVoices());  
-};
-
-
-function speak( text ) {
-  var synth = window.speechSynthesis;
-  
-}

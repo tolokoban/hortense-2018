@@ -33,7 +33,7 @@ function onStart() {
   }
 
   this._lastIndex = 2;
-  this._loops = 10;
+  this._loops = 20;
   window.setTimeout( shuffle.bind( this ), 1000 );
 }
 
@@ -107,6 +107,7 @@ function move( dx, dy ) {
   var that = this;
 
   if( gridIsSolved( grid ) ) {
+    this.stop = 1;
     this._wait = true;
     window.setTimeout(function() {
       $.addClass( that, 'victory' );
