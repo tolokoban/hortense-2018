@@ -11,9 +11,7 @@ attribute vec3 attColor;
 varying vec3 varColor;
 
 
-void main() {
-  varColor = attColor;
-  
+void main() {  
   float factor = (1.0 + attPos.z) * .5;
   float time = uniTime * 0.0001;
   float radius = 0.1 * factor;
@@ -23,4 +21,5 @@ void main() {
   gl_Position = vec4(x, y, -attPos.z, 1);
   gl_PointSize = uniSize * factor;
 
+  varColor = attColor * factor;
 }
