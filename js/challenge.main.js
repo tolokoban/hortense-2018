@@ -1,7 +1,7 @@
 /** @module challenge.main */require( 'challenge.main', function(require, module, exports) { var _=function(){var D={"en":{},"fr":{}},X=require("$").intl;function _(){return X(D,arguments);}_.all=D;return _}();
  var GLOBAL = {
-  "vert": "uniform float uniTime;\nuniform float uniSize;\n\nattribute vec3 attPos;\nattribute float attA1;\nattribute float attA2;\nattribute float attD1;\nattribute float attD2;\nattribute vec3 attColor;\n\nvarying vec3 varColor;\n\n\nvoid main() {\n  varColor = attColor;\n  \n  float factor = (1.0 + attPos.z) * .5;\n  float time = uniTime * 0.0001;\n  float radius = 0.1 * factor;\n  float x = attPos.x + radius * (cos( time * attA1 + attD1 ) + cos( time * attA2 + attD2 ));\n  float y = mod( attPos.y + time * factor, 2.4 ) - 1.2;\n  \n  gl_Position = vec4(x, y, -attPos.z, 1);\n  gl_PointSize = uniSize * factor;\n\n}\n",
-  "frag": "precision mediump float;\n\nvarying vec3 varColor;\n\n// Textures.\nuniform sampler2D tex;\n\nvoid main() {\n  vec4 pixel = texture2D( tex, gl_PointCoord.xy );\n  if( pixel.a < 0.1 ) discard;\n  vec3 color = mix( varColor, vec3(1,1,1), pixel.r );\n  gl_FragColor = vec4( color, 1 );\n}\n"};
+  "vert": "uniform float uniTime;\nuniform float uniSize;\n\nattribute vec3 attPos;\nattribute float attA1;\nattribute float attA2;\nattribute float attD1;\nattribute float attD2;\nattribute vec3 attColor;\n\nvarying vec3 varColor;\n\n\nvoid main() {  \n  float factor = (1.0 + attPos.z) * .5;\n  float time = uniTime * 0.0001;\n  float radius = 0.1 * factor;\n  float x = attPos.x + radius * (cos( time * attA1 + attD1 ) + cos( time * attA2 + attD2 ));\n  float y = mod( attPos.y + time * factor, 2.4 ) - 1.2;\n  \n  gl_Position = vec4(x, y, -attPos.z, 1);\n  gl_PointSize = uniSize * factor;\n\n  varColor = attColor * factor;\n}\n",
+  "frag": "precision mediump float;\n\nvarying vec3 varColor;\n\n// Textures.\nuniform sampler2D tex;\n\nvoid main() {\n  vec4 pixel = texture2D( tex, gl_PointCoord.xy );\n  if( pixel.a < 0.1 ) discard;\n  float coeff = pixel.r;\n  vec3 color;\n  if( coeff > .25 )\n    color = mix( varColor, vec3(1,1,1), 4.0 * (coeff - .25) / 3.0 );\n  else\n    color = varColor * 2.0 * (coeff + .25);\n  gl_FragColor = vec4( color, 1 );\n}\n"};
   // Code behind.
 "use strict";
 
@@ -95,9 +95,10 @@ var Program = require("webgl.program");
 
 var BALLOONS_COUNT = 120;
 var COLORS = [
-  [.50,0,0], [0,.50,0], [0,0,.50],
-  [0,.50,.50], [.50,0,.50], [.50,.50,0],
-  [0,.50,.25], [0,.25,.50], [.50,0,.25], [.25,0,.50], [.50,.25,0], [.25,.50,0]
+  [1,0,0], [0,1,0], [0,0,1],
+  [1,.5,.5], [.5,1,.5], [.5,.5,1],
+  [0,1,1], [1,0,1], [1,1,0],
+  [0,1,.5], [0,.5,1], [1,0,.5], [.5,0,1], [1,.5,0], [.5,1,0]
 ];
 
 function createWebGlAnimation() {
